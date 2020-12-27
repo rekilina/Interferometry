@@ -20,7 +20,7 @@ os.chdir(os.path.dirname(__file__))
 # but good for single spectra, e.g. reflection spectra
 
 # file name example: 'spectrum.CSV'
-def read_spec(filename: str):
+def parse_single(filename: str):
     i1=0
     try:
         source = open(filename, 'r').readlines()
@@ -46,6 +46,6 @@ def read_spec(filename: str):
                       dtype=float)
     return source
     
-example = read_spec('superlum_spec.CSV')    
+example = parse_single('superlum_spec.CSV')    
 plt.figure('imported data',clear=True)
 plt.plot(example[:,0], example[:,1])
