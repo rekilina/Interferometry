@@ -26,7 +26,7 @@ def parse_single(filename: str):
         source = open(filename, 'r').readlines()
     except FileNotFoundError:
         print('i1 = ',i1)
-        sys.exit('file is absent')
+        sys.exit('file is absent') # raise SystemExit('cant read data') (which doesn't require import sys)
     while (i1 <= 100):        
         try:
             source = pandas.read_csv(filename, skiprows=(i1),
