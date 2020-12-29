@@ -18,19 +18,20 @@ os.chdir(os.path.dirname(__file__))
 # function to parse file with ONE spectrum
 # not suitable for interference data 
 # but good for single spectra, e.g. reflection spectra
-
 # file name example: 'spectrum.CSV'
+
+
 def parse_single(filename: str):
-    i1=0
+    i1 = 0
     try:
         source = open(filename, 'r').readlines()
     except FileNotFoundError:
-        print('i1 = ',i1)
+        print('i1 = ', i1)
         sys.exit('file is absent') # raise SystemExit('cant read data') (which doesn't require import sys)
-    while (i1 <= 100):        
+    while (i1 <= 100):
         try:
             source = pandas.read_csv(filename, skiprows=(i1),
-                                    index_col=False,usecols=[0,1],
+                                    index_col=False, usecols=[0, 1],
                                     header=None, skip_blank_lines=False)
             break
         except:
@@ -45,7 +46,8 @@ def parse_single(filename: str):
                                     header=None, skip_blank_lines=False),
                       dtype=float)
     return source
-    
+
+
 example = parse_single('superlum_spec.CSV')    
-plt.figure('imported data',clear=True)
-plt.plot(example[:,0], example[:,1])
+plt.figure('imported data', clear=True)
+plt.plot(example[:, 0], example[:, 1])
