@@ -2,6 +2,9 @@ import numpy as np
 import pandas
 import os
 
+os.path.dirname(__file__)
+os.chdir(os.path.dirname(__file__))
+
 
 def parse_series(filename: str):  # filename with .csv
     """Parse several spectra."""
